@@ -1,0 +1,7 @@
+<form action="/allgames/allgame/" method="post">
+    <label for="game_name">Podaj nazwę: </label>
+    <input id="game_name" type="text" name="game_name" value="{{allgame.gameName}}"/>
+    <input type="hidden" type="text" name="_id" value="{{allgame._id}}"/>
+    <input type="submit" value="Zatwierdź"/>
+    <a href="/allgames/">Powrót</a>
+</form>

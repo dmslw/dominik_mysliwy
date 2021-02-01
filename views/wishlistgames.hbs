@@ -1,0 +1,41 @@
+<h1>Lista gier</h1>
+
+<form action="/wishlistgames/" method="GET">
+    <label>Wpisz frazę</label>
+    <input type="text" name="search" value="{{search}}"/>
+    <input type="hidden" name="sort" value="{{sort}}"/>
+    <input type="submit" value="Szukaj"/>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>Nazwa</th>
+        <th>Opcje</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each wishlistgames}}
+        <tr>
+            <td>{{this.gameName}}</td>
+            <td>
+                <a href="wishlistgame/?id={{this._id}}">Edytuj</a>
+                <a href="wishlistgame-delete/?id={{this._id}}">Usuń</a>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+<div>
+    Znaleziono {{count}} rekord(y/ów)
+</div>
+<div>
+    <a href="?sort=1">A-Z</a>
+    <a href="?sort=-1">Z-A</a>
+    <a href="?sort={{sort}}&page={{prevPage}}">&lt;&lt;</a>
+    <a href="?sort={{sort}}&page={{nextPage}}">&gt;&gt;</a>
+
+    <a href="wishlistgame/">Dodaj</a>
+</div>
+<div>
+    Sumaryczna długość nazw: {{report.0.value}}
+</div>
